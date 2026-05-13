@@ -10,10 +10,10 @@ while (true)
     Console.WriteLine("---------------------------------");
     Console.WriteLine("Gestão de Equipamentos");
     Console.WriteLine("---------------------------------");
-    Console.WriteLine("1 - Cadastrar equipamento");
-    Console.WriteLine("2 - Editar equipamento");
-    Console.WriteLine("3 - Excluir equipamento");
-    Console.WriteLine("4 - Visualizar equipamentos");
+    Console.WriteLine("1 - Cadastrar Equipamento");
+    Console.WriteLine("2 - Editar Equipamento");
+    Console.WriteLine("3 - Excluir Equipamento");
+    Console.WriteLine("4 - Visualizar Equipamentos");
     Console.WriteLine("S - Sair");
     Console.WriteLine("---------------------------------");
     Console.Write("> ");
@@ -25,7 +25,7 @@ while (true)
         break;
     }
 
-// Operações C.R.U.D - Create, Read/Retrieve, Update, Delete
+    // Operações C.R.U.D - Create, Read/Retrieve, Update, Delete
     if (opcaoMenu == "1")
     {
         Console.WriteLine("---------------------------------");
@@ -106,7 +106,7 @@ while (true)
         Console.Write("Digite a Data de Fabricação (dd/mm/yyyy):");
         DateTime dataFabricacao = DateTime.Parse(Console.ReadLine());
         Console.WriteLine();
-        
+
         for (int i = 0; i < equipamentosSalvos.Length; i++)
         {
             Equipamento eq = equipamentosSalvos[i];
