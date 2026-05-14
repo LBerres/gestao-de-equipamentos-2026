@@ -295,18 +295,22 @@ while (true)
                 Console.WriteLine("---------------------------------");
 
                 // Obtenção dos Dados
-                Console.Write("Digite o título do chamado: ");
+                Console.Write("Digite o Título do Chamado: ");
                 string titulo = Console.ReadLine();
-
-                Console.Write("Digite a descrição do chamado: ");
-                string descricao = Console.ReadLine();
-
-                DateTime dataAbertura = DateTime.Now;
-
-                // Apresentar os equipamentos cadastrados
+                Console.WriteLine();
                 Console.WriteLine("---------------------------------");
 
+                Console.Write("Digite a Descrição do Chamado: ");
+                string descricao = Console.ReadLine();
+                Console.WriteLine();
+                Console.WriteLine("---------------------------------");
+
+                DateTime dataAbertura = DateTime.Now;
+                Console.WriteLine();
+
+                // Apresentar os equipamentos cadastrados
                 // tabela do console
+                Console.WriteLine("---------------------------------");
                 Console.WriteLine(
                     "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
                     "Id", "Nome", "Preço de Aquisição", "Data de Fabricação"
@@ -324,12 +328,15 @@ while (true)
                         eq.id, eq.nome, eq.precoAquisicao, eq.dataFabricacao
                     );
                 }
-
+                Console.WriteLine();
                 Console.WriteLine("---------------------------------");
 
+
                 // Pedir para o usuário selecionar o ID do equipamento desejado
-                Console.Write("Digite o id do equipamento que deseja selecionar: ");
+                Console.Write("Digite o ID do Equipamento que Deseja Selecionar: ");
                 int idEquipamentoSelecionado = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                Console.WriteLine("---------------------------------");
 
                 Equipamento equipamentoSelecionado = null;
 
@@ -363,12 +370,20 @@ while (true)
                     }
                 }
 
-                Console.WriteLine($"O chamado {novoChamado.titulo} foi cadastrado com sucesso!");
+                Console.WriteLine($"O Chamado {novoChamado.titulo} Foi Cadastrado com Sucesso!");
+                Console.WriteLine();
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Pressione Enter Para Continuar...");
                 Console.ReadLine();
             }
 
             else if (opcaoMenu == "4")
             {
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Visualização de Chamados");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine();
+                // Tabela
                 Console.WriteLine(
                     "{0, -7} | {1, -15} | {2, -20} | {3, -15} | {4, -15}",
                     "Id", "Título", "Descrição", "Data de Abertura", "Equipamento"
@@ -382,7 +397,7 @@ while (true)
                         continue;
 
                     Console.WriteLine(
-                        "{0, -7} | {1, -15} | {2, -20} | {3, -17} | {4, -15}",
+                        "{0, -7} | {1, -15} | {2, -30} | {3, -17} | {4, -15}",
                         ch.id,
                         ch.titulo,
                         ch.descricao,
