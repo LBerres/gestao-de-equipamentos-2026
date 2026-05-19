@@ -4,6 +4,7 @@ public class TelaPrincipal
 {
     public string ObterOpcaoMenuPrincipal()
     {
+        // Apresentação: Menu Principal
         Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
