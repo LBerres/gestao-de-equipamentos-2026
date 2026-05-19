@@ -1,21 +1,15 @@
 namespace GestaoDeEquipamentos.ConsoleApp.Apresentacao;
 
-using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
-using GestaoDeEquipamentos.ConsoleApp.Dominio;
-
 public class TelaPrincipal
 {
-    public string ObterOpcaoMenuPrincipal()
+    public string? ObterOpcaoMenuPrincipal()
     {
-        // Apresentação: Menu Principal
-        Console.Clear();
+        // Console.Clear();
         Console.WriteLine("---------------------------------");
-        Console.WriteLine();
         Console.WriteLine("Gestão de Equipamentos");
-        Console.WriteLine();
         Console.WriteLine("---------------------------------");
-        Console.WriteLine("1 - Controle de Equipamento");
-        Console.WriteLine("2 - Controle de Chamados");
+        Console.WriteLine("1 - Controle de equipamentos");
+        Console.WriteLine("2 - Controle de chamados");
         Console.WriteLine("S - Sair");
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
