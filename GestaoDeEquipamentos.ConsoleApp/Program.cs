@@ -1,11 +1,16 @@
 ﻿using GestaoDeEquipamentos.ConsoleApp.Dominio;
 using GestaoDeEquipamentos.ConsoleApp.Apresentacao;
+using GestaoDeEquipamentos.ConsoleApp.Repositorio;
 
 int contadorIdsChamados = 1;
 Chamados[] chamadosSalvos = new Chamados[100];
 
 TelaPrincipal telaPrincipal = new TelaPrincipal();
+
+repositorioEquipamento = new RepositorioEquipamento();
 TelaEquipamento telaEquipamento = new TelaEquipamento();
+telaEquipamento.repositorioEquipamento = repositorioEquipamento;
+
 TelaChamado telaChamado = new TelaChamado();
 
 while (true)
@@ -36,22 +41,18 @@ while (true)
             {
                 telaEquipamento.Cadastrar();
             }
-
             else if (opcaoMenu == "2")
             {
                 telaEquipamento.Editar();
             }
-
             else if (opcaoMenu == "3")
             {
                 telaEquipamento.Excluir();
             }
-
             else if (opcaoMenu == "4")
             {
                 telaEquipamento.VisualizarTodos();
             }
-
         }
         else if (opcaoMenuPrincipal == "2")
         {

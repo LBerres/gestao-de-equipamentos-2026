@@ -1,11 +1,12 @@
-using GestaoDeEquipamentos.ConsoleApp.Dominio;
 namespace GestaoDeEquipamentos.ConsoleApp.Apresentacao;
+
+using GestaoDeEquipamentos.ConsoleApp.Dominio;
+using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
 
 public class TelaEquipamento
 {
-    public int contadorIdsEquipamentos = 1;
-    public Equipamento[] equipamentosSalvos = new Equipamento[100];
-    public string ObterOpcaoMenuEquipamento()
+    public RepositorioEquipamento repositorioEquipamento;
+    public TelaEquipamento()
     {
         // Apresentação: Menu de Controle de Equipamentos
         Console.Clear();
@@ -57,16 +58,8 @@ public class TelaEquipamento
         equipamento.nome = nome;
         equipamento.precoAquisicao = precoAquisicao;
         equipamento.dataFabricacao = dataFabricacao;
-        equipamento.id = contadorIdsEquipamentos++;
 
-        for (int i = 0; i < equipamentosSalvos.Length; i++)
-        {
-            if (equipamentosSalvos[i] == null)
-            {
-                equipamentosSalvos[i] = equipamento;
-                break;
-            }
-        }
+        repositorioEquipamento.Cadastrar(equipamento);
 
         Console.WriteLine();
         Console.WriteLine($"Equipamento {equipamento.nome} Cadastrado com Sucesso!");
@@ -132,21 +125,8 @@ public class TelaEquipamento
         DateTime dataFabricacao = DateTime.Parse(Console.ReadLine());
         Console.WriteLine();
 
-        for (int i = 0; i < equipamentosSalvos.Length; i++)
-        {
-            Equipamento eq = equipamentosSalvos[i];
+        repositorioEquipamento.Editar(idSelecionado, nome, precoAquisicao, dataFabricacao);
 
-            if (eq == null)
-                continue;
-
-            if (eq.id == idSelecionado)
-            {
-                eq.nome = nome;
-                eq.precoAquisicao = precoAquisicao;
-                eq.dataFabricacao = dataFabricacao;
-                break;
-            }
-        }
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
         Console.WriteLine($"Equipamento {nome} Editado com Sucesso!");
@@ -196,19 +176,8 @@ public class TelaEquipamento
         Console.Write("Digite o ID do Equipamento a ser Excluído: ");
         int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
-        for (int i = 0; i < equipamentosSalvos.Length; i++)
-        {
-            Equipamento eq = equipamentosSalvos[i];
+        repositorioEquipamento.Excluir(idSelecionado);
 
-            if (eq == null)
-                continue;
-
-            if (eq.id == idSelecionado)
-            {
-                equipamentosSalvos[i] = null;
-                break;
-            }
-        }
         Console.WriteLine();
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
@@ -231,6 +200,8 @@ public class TelaEquipamento
         Console.WriteLine();
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
+
+        Equipamento[] equipamentosSalvos = repositorioEquipamento.SelecionarTodos();
 
         // tabela do console
         Console.WriteLine(

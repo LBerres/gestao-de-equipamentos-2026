@@ -1,6 +1,7 @@
 namespace GestaoDeEquipamentos.ConsoleApp.Apresentacao;
 
 using GestaoDeEquipamentos.ConsoleApp.Dominio;
+using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
 
 public class TelaChamdo
 {

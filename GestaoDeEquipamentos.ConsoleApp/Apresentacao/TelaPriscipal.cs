@@ -1,5 +1,8 @@
 namespace GestaoDeEquipamentos.ConsoleApp.Apresentacao;
 
+using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
+using GestaoDeEquipamentos.ConsoleApp.Dominio;
+
 public class TelaPrincipal
 {
     public string ObterOpcaoMenuPrincipal()
