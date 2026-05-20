@@ -6,7 +6,7 @@ using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
 public class TelaEquipamento
 {
     public RepositorioEquipamento repositorioEquipamento;
-    public TelaEquipamento()
+    public string? ObterOpcaoMenu()
     {
         // Apresentação: Menu de Controle de Equipamentos
         Console.Clear();
@@ -82,6 +82,8 @@ public class TelaEquipamento
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
 
+        Equipamento[] equipamentosSalvos = repositorioEquipamento.SelecionarTodos();
+
         // tabela do console
         Console.WriteLine(
             "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
@@ -125,7 +127,12 @@ public class TelaEquipamento
         DateTime dataFabricacao = DateTime.Parse(Console.ReadLine());
         Console.WriteLine();
 
-        repositorioEquipamento.Editar(idSelecionado, nome, precoAquisicao, dataFabricacao);
+        Equipamento equipamentoAtualizado = new Equipamento();
+        equipamentoAtualizado.nome = nome;
+        equipamentoAtualizado.precoAquisicao = precoAquisicao;
+        equipamentoAtualizado.dataFabricacao = dataFabricacao;
+
+        repositorioEquipamento.Editar(idSelecionado, equipamentoAtualizado);
 
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
@@ -154,6 +161,8 @@ public class TelaEquipamento
             "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
             "Id", "Nome", "Preço de Aquisição", "Data de Fabricação"
         );
+
+        Equipamento[] equipamentosSalvos = repositorioEquipamento.SelecionarTodos();
 
         for (int i = 0; i < equipamentosSalvos.Length; i++)
         {
