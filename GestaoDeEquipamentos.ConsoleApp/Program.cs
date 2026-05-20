@@ -1,15 +1,14 @@
 ﻿using GestaoDeEquipamentos.ConsoleApp.Dominio;
 using GestaoDeEquipamentos.ConsoleApp.Apresentacao;
 using GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
-
-RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
-RepositorioChamado repositorioChamado = new RepositorioChamado();
-
+// TELA PRINCIPAL
 TelaPrincipal telaPrincipal = new TelaPrincipal();
-
+// EQUIPAMENTOS
+RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
 TelaEquipamento telaEquipamento = new TelaEquipamento();
 telaEquipamento.repositorioEquipamento = repositorioEquipamento;
-
+// CHAMADOS
+RepositorioChamado repositorioChamado = new RepositorioChamado();
 TelaChamado telaChamado = new TelaChamado();
 telaChamado.repositorioChamado = repositorioChamado;
 telaChamado.repositorioEquipamento = repositorioEquipamento;
