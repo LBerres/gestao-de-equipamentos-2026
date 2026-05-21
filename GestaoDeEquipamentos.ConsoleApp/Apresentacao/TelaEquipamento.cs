@@ -54,15 +54,12 @@ public class TelaEquipamento
         Console.WriteLine();
         Console.WriteLine("---------------------------------");
 
-        Equipamento equipamento = new Equipamento();
-        equipamento.nome = nome;
-        equipamento.precoAquisicao = precoAquisicao;
-        equipamento.dataFabricacao = dataFabricacao;
+        Equipamento equipamento = new Equipamento(nome, precoAquisicao, dataFabricacao);
 
         repositorioEquipamento.Cadastrar(equipamento);
 
         Console.WriteLine();
-        Console.WriteLine($"Equipamento {equipamento.nome} Cadastrado com Sucesso!");
+        Console.WriteLine($"Equipamento {equipamento.Nome} Cadastrado com Sucesso!");
         Console.WriteLine();
         Console.WriteLine("---------------------------------");
         Console.WriteLine();
@@ -99,10 +96,10 @@ public class TelaEquipamento
 
             Console.WriteLine(
                 "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
-                eq.id,
-                eq.nome,
-                eq.precoAquisicao,
-                eq.dataFabricacao.ToShortDateString()
+                eq.Id,
+                eq.Nome,
+                eq.PrecoAquisicao,
+                eq.DataFabricacao.ToShortDateString()
             );
         }
         Console.WriteLine();
@@ -127,10 +124,7 @@ public class TelaEquipamento
         DateTime dataFabricacao = DateTime.Parse(Console.ReadLine());
         Console.WriteLine();
 
-        Equipamento equipamentoAtualizado = new Equipamento();
-        equipamentoAtualizado.nome = nome;
-        equipamentoAtualizado.precoAquisicao = precoAquisicao;
-        equipamentoAtualizado.dataFabricacao = dataFabricacao;
+        Equipamento equipamentoAtualizado = new Equipamento(nome, precoAquisicao, dataFabricacao);
 
         repositorioEquipamento.Editar(idSelecionado, equipamentoAtualizado);
 
@@ -173,10 +167,10 @@ public class TelaEquipamento
 
             Console.WriteLine(
                 "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
-                eq.id,
-                eq.nome,
-                eq.precoAquisicao,
-                eq.dataFabricacao.ToShortDateString()
+                eq.Id,
+                eq.Nome,
+                eq.PrecoAquisicao,
+                eq.DataFabricacao.ToShortDateString()
             );
         }
         Console.WriteLine();
@@ -227,10 +221,10 @@ public class TelaEquipamento
 
             Console.WriteLine(
                 "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
-                eq.id,
-                eq.nome,
-                eq.precoAquisicao,
-                eq.dataFabricacao.ToShortDateString()
+                eq.Id,
+                eq.Nome,
+                eq.PrecoAquisicao,
+                eq.DataFabricacao.ToShortDateString()
             );
         }
         Console.WriteLine();

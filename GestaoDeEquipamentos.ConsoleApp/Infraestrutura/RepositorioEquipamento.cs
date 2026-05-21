@@ -1,17 +1,18 @@
 namespace GestaoDeEquipamentos.ConsoleApp.Infraestrutura;
 
+using GestaoDeEquipamentos.ConsoleApp.Utilidades;
 using GestaoDeEquipamentos.ConsoleApp.Dominio;
 using GestaoDeEquipamentos.ConsoleApp.Apresentacao;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
 
 public class RepositorioEquipamento // armazém / recipiente
 {
     public int contadorIdsEquipamentos = 1;
     private Equipamento[] equipamentosSalvos = new Equipamento[100];
 
-    public void Cadastrar(Equipamento novoEquipamento)
+     public void Cadastrar(Equipamento novoEquipamento)
     {
-        novoEquipamento.id = contadorIdsEquipamentos++;
-
         for (int i = 0; i < equipamentosSalvos.Length; i++)
         {
             if (equipamentosSalvos[i] == null)
@@ -31,11 +32,9 @@ public class RepositorioEquipamento // armazém / recipiente
             if (equipamentoSelecionado == null)
                 continue;
 
-            if (equipamentoSelecionado.id == idSelecionado)
+            if (equipamentoSelecionado.Id == idSelecionado)
             {
-                equipamentoSelecionado.nome = equipamentoAtualizado.nome;
-                equipamentoSelecionado.precoAquisicao = equipamentoAtualizado.precoAquisicao;
-                equipamentoSelecionado.dataFabricacao = equipamentoAtualizado.dataFabricacao;
+                equipamentoSelecionado.Atualizar(equipamentoAtualizado);
                 break;
             }
         }
@@ -50,7 +49,7 @@ public class RepositorioEquipamento // armazém / recipiente
             if (equipamentoSelecionado == null)
                 continue;
 
-            if (equipamentoSelecionado.id == idSelecionado)
+            if (equipamentoSelecionado.Id == idSelecionado)
             {
                 equipamentosSalvos[i] = null;
                 break;
